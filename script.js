@@ -72,8 +72,44 @@ function generatePassword() {
     characters = lowers.concat(numbers);
   }
 
-  ///////start here
+  else if (lowerChar && specialChar) {
+    characters = lowers.concat(specials);
+  }
 
+  else if (upperChar && numChar) {
+    characters = uppers.concat(numbers);
+  }
+
+  else if (upperChar && specialChar) {
+    characters = uppers.concat(specials);
+  }
+
+  else if (numChar && specialChar) {
+    characters = uppers.concat(specials);
+  }
+
+  //else if 1 is true
+  else if (lowerChar) {
+    characters = lowers;
+  }
+
+  else if (upperChar) {
+    characters = uppers;
+  }
+
+  else if (numChar) {
+    characters = numbers;
+  }
+
+  else if (specialChar) {
+    characters = specials;
+  }
+
+  for (var i = 0; i < passwordLength.length; i++) {
+    var randomChar = characters[Math.floor(Math.random() * characters.length)];
+    newPassword.push(randomChar);
+    console.log(newPassword)
+  }
 
 
 }
